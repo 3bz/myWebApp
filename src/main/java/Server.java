@@ -11,7 +11,7 @@ public class Server {
     public static HttpServer createServer() {
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
-            server.createContext("/greeting", new Handler());
+            server.createContext("/greeting", new GreetingHandler());
             server.setExecutor(null); // creates a default executor
             return server;
         }

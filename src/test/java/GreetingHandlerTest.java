@@ -5,13 +5,13 @@ import org.junit.Test;
 import java.sql.Time;
 import java.time.Instant;
 
-public class HandlerTest {
+public class GreetingHandlerTest {
 
-    private Handler testHandler;
+    private GreetingHandler testHandler;
 
     @Before
     public void init() {
-        testHandler = new Handler();
+        testHandler = new GreetingHandler();
         testHandler.setWelcomeMessage();
     }
 
@@ -32,7 +32,7 @@ public class HandlerTest {
     @Test
     public void changeUser() {
         String user = "World";
-        testHandler.addUser(user);
+        testHandler.changeUser(user);
         String actual = testHandler.getUser();
 
         Assert.assertEquals("World", actual);

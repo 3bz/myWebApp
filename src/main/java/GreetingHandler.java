@@ -3,10 +3,8 @@ import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.sql.Time;
-import java.time.Instant;
 
-public class Handler implements HttpHandler {
+public class GreetingHandler implements HttpHandler {
 
     private int returnCode;
     private String response;
@@ -38,16 +36,16 @@ public class Handler implements HttpHandler {
     }
 
     public void setWelcomeMessage() {
-        response = "Hello " + user + " - the time on the server is " + Time.from(Instant.now());
+        response = Messages.WELCOME_MESSAGE(user);
         returnCode = 200;
     }
 
     public void setErrorMessage() {
-        response = "Method Not Allowed";
+        response = Messages.METHOD_NOT_ALLOWED;
         returnCode = 405;
     }
 
-    public void addUser(String username) {
+    public void changeUser(String username) {
         user = username;
     }
 
