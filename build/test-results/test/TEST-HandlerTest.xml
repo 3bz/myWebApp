@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="HandlerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-11-21T02:23:26" hostname="C02Y309QJG5J" time="0.015">
+  <properties/>
+  <testcase name="changeUser" classname="HandlerTest" time="0.014"/>
+  <testcase name="testUser" classname="HandlerTest" time="0.0"/>
+  <testcase name="errorMessageResponse" classname="HandlerTest" time="0.0"/>
+  <testcase name="desiredResponse" classname="HandlerTest" time="0.0"/>
+  <testcase name="testReturnCode" classname="HandlerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
