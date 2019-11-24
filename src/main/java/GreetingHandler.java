@@ -6,9 +6,14 @@ import java.io.OutputStream;
 
 public class GreetingHandler implements HttpHandler {
 
+    private World users;
     private int returnCode;
     private String response;
-    private String user = "Ryan";
+
+    public GreetingHandler(World users) {
+        this.users = users;
+        users.addUser("Ryan");
+    }
 
     @Override
     public void handle(HttpExchange exchange) {
@@ -36,7 +41,7 @@ public class GreetingHandler implements HttpHandler {
     }
 
     public void setWelcomeMessage() {
-        response = Messages.WELCOME_MESSAGE(user);
+        response = Messages.WELCOME_MESSAGE(users.getUsers().get(0));
         returnCode = 200;
     }
 
@@ -45,12 +50,8 @@ public class GreetingHandler implements HttpHandler {
         returnCode = 405;
     }
 
-    public void changeUser(String username) {
-        user = username;
-    }
-
     public String getUser() {
-        return user;
+        return users.getUsers().get(0);
     }
 
     String getResponse() {

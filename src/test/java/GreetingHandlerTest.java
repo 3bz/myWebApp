@@ -11,7 +11,7 @@ public class GreetingHandlerTest {
 
     @Before
     public void init() {
-        testHandler = new GreetingHandler();
+        testHandler = new GreetingHandler(new World());
         testHandler.setWelcomeMessage();
     }
 
@@ -30,15 +30,6 @@ public class GreetingHandlerTest {
     }
 
     @Test
-    public void changeUser() {
-        String user = "World";
-        testHandler.changeUser(user);
-        String actual = testHandler.getUser();
-
-        Assert.assertEquals("World", actual);
-    }
-
-    @Test
     public void desiredResponse() {
         testHandler.setWelcomeMessage();
         String actual = testHandler.getResponse();
@@ -53,7 +44,7 @@ public class GreetingHandlerTest {
         String actual = testHandler.getResponse();
         int actualRCode = testHandler.getReturnCode();
 
-        Assert.assertEquals("Method Not Allowed", actual);
+        Assert.assertEquals("405: Method Not Allowed", actual);
         Assert.assertEquals(405, actualRCode);
     }
 
