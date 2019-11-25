@@ -11,13 +11,15 @@ public class GreetingHandlerTest {
 
     @Before
     public void init() {
-        testHandler = new GreetingHandler(new World());
+        World users = new World();
+        UserRepository repo = new UserRepository(users);
+        testHandler = new GreetingHandler(repo);
         testHandler.setWelcomeMessage();
     }
 
     @Test
     public void testUser() {
-        String actual = testHandler.getUser();
+        String actual = testHandler.getUser().getName();
 
         Assert.assertEquals("Ryan", actual);
     }

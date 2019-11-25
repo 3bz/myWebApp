@@ -4,9 +4,9 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
 
 public class UserHandler implements HttpHandler {
-    private World users;
+    private UserRepository users;
 
-    public UserHandler(World users) {
+    public UserHandler(UserRepository users) {
         this.users = users;
     }
 
@@ -17,20 +17,28 @@ public class UserHandler implements HttpHandler {
     }
 
     private void handleRequest(HttpExchange exchange) {
-        if (exchange.getRequestMethod().equals("POST"))
-            addUser(exchange.getRequestBody().toString());
+        if (exchange.getRequestMethod().equals("POST")) {
+            String userToAdd = exchange.getRequestBody().toString();
+            addUser(userToAdd);
+        }
     }
 
     private void handleResponse(HttpExchange exchange) {
     }
 
     public void addUser(String username) {
-        if (!username.isEmpty()) {
-            users.addUser(username);
-        }
+        if (!username.isEmpty() && !username.isBlank())
+            users.addUser(new User(username));
     }
 
-    public String getUser() {
-        return users.getUsers().get(0);
+    public String getUsers() {
+        String listOfUsers = "";
+        if (users.getUsers().size() > 0) {
+            for (User aUser : users.getUsers()) {
+                listOfUsers += aUser.getName() + ", ";
+            }
+            return listOfUsers.substring(0, listOfUsers.length() - 2);
+        }
+        return listOfUsers;
     }
 }

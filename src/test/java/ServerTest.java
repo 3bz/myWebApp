@@ -1,11 +1,14 @@
+import com.sun.net.httpserver.HttpServer;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class ServerTest {
     @Test
     public void testServerAddress() {
-        Server testServer = new Server();
-        int actual = testServer.createServer().getAddress().getPort();
+        World users = new World();
+        UserRepository repo = new UserRepository(users);
+        HttpServer testServer = Server.createServer(repo);
+        int actual = testServer.getAddress().getPort();
 
         Assert.assertEquals(8080, actual);
     }

@@ -7,7 +7,9 @@ public class UserHandlerTest {
 
     @Before
     public void init() {
-        testHandler = new UserHandler(new World());
+        World users = new World();
+        UserRepository repo = new UserRepository(users);
+        testHandler = new UserHandler(repo);
     }
 
     @Test
@@ -17,16 +19,16 @@ public class UserHandlerTest {
     @Test
     public void addANewUser() {
         testHandler.addUser("World");
-        String actual = testHandler.getUser();
+        String actual = testHandler.getUsers();
 
         Assert.assertEquals("World", actual);
     }
 
     @Test
     public void cannotChangeToEmptyName() {
-        testHandler.addUser("");
-        String actual = testHandler.getUser();
+        testHandler.addUser("  ");
+        String actual = testHandler.getUsers();
 
-        Assert.assertEquals("Ryan", actual);
+        Assert.assertEquals("", actual);
     }
 }
