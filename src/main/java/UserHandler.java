@@ -43,10 +43,23 @@ public class UserHandler implements HttpHandler {
         String listOfUsers = "";
         if (users.getUsers().size() > 0) {
             for (User aUser : users.getUsers()) {
-                listOfUsers += aUser.getName() + ", ";
+                listOfUsers += aUser.getName() + "\n";
             }
-            return listOfUsers.substring(0, listOfUsers.length() - 2);
+            return listOfUsers.substring(0, listOfUsers.length() - 1);
         }
         return listOfUsers;
+    }
+
+    public void removeUser(String usersName) {
+        if (usersName.equalsIgnoreCase(Messages.WORLD_OWNER)) {
+            //set error message
+            return;
+        }
+        for (User aUser : users.getUsers()) {
+            if (aUser.getName().equalsIgnoreCase(usersName)) {
+                users.removeUser(aUser);
+                break;
+            }
+        }
     }
 }

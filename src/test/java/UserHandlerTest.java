@@ -34,8 +34,10 @@ public class UserHandlerTest {
         testHandler.addUser("World");
 
         String actual = testHandler.getUsers();
+        String expected = "Hello" +
+                        "\nWorld";
 
-        Assert.assertEquals("Hello, World", actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
