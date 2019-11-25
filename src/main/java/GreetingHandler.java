@@ -41,7 +41,7 @@ public class GreetingHandler implements HttpHandler {
     }
 
     public void setWelcomeMessage() {
-        response = Messages.WELCOME_MESSAGE(users.getUsers().get(0).getName());
+        response = Messages.WELCOME_MESSAGE(getUsers());
         returnCode = 200;
     }
 
@@ -50,8 +50,16 @@ public class GreetingHandler implements HttpHandler {
         returnCode = 405;
     }
 
-    public User getUser() {
-        return users.getUsers().get(0);
+    public String getUsers() {
+        String namesOfUsers = "";
+        for (int i = 0; i < users.getUsers().size(); i ++) {
+            namesOfUsers += users.getUsers().get(i).getName();
+            if (i + 2 < users.getUsers().size())
+                namesOfUsers += ", ";
+            if (i + 2 == users.getUsers().size())
+                namesOfUsers += " and ";
+        }
+        return namesOfUsers;
     }
 
     String getResponse() {

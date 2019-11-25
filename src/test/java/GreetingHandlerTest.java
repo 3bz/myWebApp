@@ -7,19 +7,19 @@ import java.time.Instant;
 
 public class GreetingHandlerTest {
 
+    private World users = new World();
+    private UserRepository repo = new UserRepository(users);
     private GreetingHandler testHandler;
 
     @Before
     public void init() {
-        World users = new World();
-        UserRepository repo = new UserRepository(users);
         testHandler = new GreetingHandler(repo);
         testHandler.setWelcomeMessage();
     }
 
     @Test
     public void testUser() {
-        String actual = testHandler.getUser().getName();
+        String actual = testHandler.getUsers();
 
         Assert.assertEquals("Ryan", actual);
     }
@@ -33,7 +33,6 @@ public class GreetingHandlerTest {
 
     @Test
     public void desiredResponse() {
-        testHandler.setWelcomeMessage();
         String actual = testHandler.getResponse();
         String expected = "Hello Ryan - the time on the server is " + Time.from(Instant.now());
 

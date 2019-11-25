@@ -1,8 +1,6 @@
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-import java.io.IOException;
-
 public class UserHandler implements HttpHandler {
     private UserRepository users;
 
@@ -11,7 +9,7 @@ public class UserHandler implements HttpHandler {
     }
 
     @Override
-    public void handle(HttpExchange exchange) throws IOException {
+    public void handle(HttpExchange exchange) {
         handleRequest(exchange);
         handleResponse(exchange);
     }
@@ -27,8 +25,18 @@ public class UserHandler implements HttpHandler {
     }
 
     public void addUser(String username) {
-        if (!username.isEmpty() && !username.isBlank())
-            users.addUser(new User(username));
+        if (!username.isEmpty() && !username.isBlank()) {
+            if (isUserUnique(username))
+                users.addUser(new User(username));
+        }
+    }
+
+    private boolean isUserUnique(String username) {
+        for (User aUser : users.getUsers()) {
+            if (aUser.getName().equalsIgnoreCase(username))
+                return false;
+        }
+        return true;
     }
 
     public String getUsers() {

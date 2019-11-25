@@ -3,17 +3,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class UserHandlerTest {
+    World users = new World();
+    UserRepository repo = new UserRepository(users);
     private UserHandler testHandler;
 
     @Before
     public void init() {
-        World users = new World();
-        UserRepository repo = new UserRepository(users);
         testHandler = new UserHandler(repo);
-    }
-
-    @Test
-    public void addNewUser() {
     }
 
     @Test
@@ -30,5 +26,25 @@ public class UserHandlerTest {
         String actual = testHandler.getUsers();
 
         Assert.assertEquals("", actual);
+    }
+
+    @Test
+    public void addTwoUsers() {
+        testHandler.addUser("Hello");
+        testHandler.addUser("World");
+
+        String actual = testHandler.getUsers();
+
+        Assert.assertEquals("Hello, World", actual);
+    }
+
+    @Test
+    public void onlyAllowsUniqueUsers() {
+        testHandler.addUser("World");
+        testHandler.addUser("World");
+
+        String actual = testHandler.getUsers();
+
+        Assert.assertEquals("World", actual);
     }
 }
