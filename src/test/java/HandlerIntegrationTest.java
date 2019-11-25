@@ -6,7 +6,6 @@ import java.sql.Time;
 import java.time.Instant;
 
 public class HandlerIntegrationTest {
-    private final String WORLD_OWNER = "Ryan";
     private UserStorage users = new World();
     private UserRepository repo = new UserRepository(users);
     private GreetingHandler greetingHandler;
@@ -24,7 +23,7 @@ public class HandlerIntegrationTest {
 
         String actual = userHandler.getUsers();
 
-        Assert.assertEquals(WORLD_OWNER + "\nBob", actual);
+        Assert.assertEquals(Messages.WORLD_OWNER + "\nBob", actual);
     }
 
     @Test
@@ -46,33 +45,5 @@ public class HandlerIntegrationTest {
         String actual = greetingHandler.getResponse();
 
         Assert.assertEquals("Hello Ryan, Bob and Sue - the time on the server is " + Time.from(Instant.now()), actual);
-    }
-
-    @Test
-    public void removeUserFromWorld() {
-        userHandler.addUser("Bob");
-        userHandler.removeUser("Bob");
-        String actual = userHandler.getUsers();
-
-        Assert.assertEquals("Ryan", actual);
-    }
-
-    @Test
-    public void cannotRemoveWorldOwner() {
-        userHandler.removeUser("Ryan");
-
-        String actual = userHandler.getUsers();
-
-        Assert.assertEquals(WORLD_OWNER, actual);
-    }
-
-    @Test
-    public void changeNameOfUser() {
-        userHandler.addUser("Bob");
-        userHandler.updateUser("Bob", "Sue");
-
-        String actual = userHandler.getUsers();
-
-        Assert.assertEquals("Ryan\nSue", actual);
     }
 }

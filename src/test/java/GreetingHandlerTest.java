@@ -21,7 +21,7 @@ public class GreetingHandlerTest {
     public void testUser() {
         String actual = testHandler.getUsers();
 
-        Assert.assertEquals("Ryan", actual);
+        Assert.assertEquals(Messages.WORLD_OWNER, actual);
     }
 
     @Test
@@ -32,9 +32,9 @@ public class GreetingHandlerTest {
     }
 
     @Test
-    public void desiredResponse() {
+    public void greetedWithNameAndTime() {
         String actual = testHandler.getResponse();
-        String expected = "Hello Ryan - the time on the server is " + Time.from(Instant.now());
+        String expected = "Hello " + Messages.WORLD_OWNER + " - the time on the server is " + Time.from(Instant.now());
 
         Assert.assertEquals(expected, actual);
     }

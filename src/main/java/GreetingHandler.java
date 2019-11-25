@@ -12,7 +12,7 @@ public class GreetingHandler implements HttpHandler {
 
     public GreetingHandler(UserRepository users) {
         this.users = users;
-        users.addUser(new User("Ryan"));
+        users.addUser(new User(Messages.WORLD_OWNER));
     }
 
     @Override

@@ -13,17 +13,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/UserHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/UserHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/GreetingHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/GreetingHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/GreetingHandlerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/GreetingHandlerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/HandlerIntegrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/HandlerIntegrationTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/UserHandlerTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/UserHandlerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/UserHandlerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/HandlerIntegrationTest.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-UserHandlerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-HandlerIntegrationTest.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GreetingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GreetingHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GreetingHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GreetingHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/HandlerIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HandlerIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UserHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserHandlerTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,13 +88,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.HandlerIntegrationTest.changeNameOfUser">
-    <configuration name="HandlerIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.GreetingHandlerTest">
+    <configuration name="GreetingHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;HandlerIntegrationTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;GreetingHandlerTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -107,32 +109,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="HandlerIntegrationTest.addUserToMyWorld" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GreetingHandlerTest.desiredResponse" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;HandlerIntegrationTest.addUserToMyWorld&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="HandlerIntegrationTest.changeNameOfUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;HandlerIntegrationTest.changeNameOfUser&quot;" />
+        <option name="scriptParameters" value="--tests &quot;GreetingHandlerTest.desiredResponse&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -167,12 +149,32 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="UserHandlerTest.addTwoUsers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;UserHandlerTest.addTwoUsers&quot;" />
+        <option name="scriptParameters" value="--tests &quot;UserHandlerTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserHandlerTest.removeUserFromWorld" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;UserHandlerTest.removeUserFromWorld&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -189,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.HandlerIntegrationTest.changeNameOfUser" />
+        <item itemvalue="Gradle.GreetingHandlerTest" />
         <item itemvalue="Gradle.Tests in 'myWebApp.test'" />
-        <item itemvalue="Gradle.HandlerIntegrationTest" />
-        <item itemvalue="Gradle.HandlerIntegrationTest.addUserToMyWorld" />
-        <item itemvalue="Gradle.UserHandlerTest.addTwoUsers" />
+        <item itemvalue="Gradle.GreetingHandlerTest.desiredResponse" />
+        <item itemvalue="Gradle.UserHandlerTest" />
+        <item itemvalue="Gradle.UserHandlerTest.removeUserFromWorld" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +212,7 @@
       <workItem from="1574291424830" duration="10967000" />
       <workItem from="1574312894090" duration="1990000" />
       <workItem from="1574373984519" duration="1676000" />
-      <workItem from="1574636214296" duration="13139000" />
+      <workItem from="1574636214296" duration="16574000" />
     </task>
     <servers />
   </component>

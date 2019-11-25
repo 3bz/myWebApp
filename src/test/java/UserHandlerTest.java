@@ -14,10 +14,10 @@ public class UserHandlerTest {
 
     @Test
     public void addANewUser() {
-        testHandler.addUser("World");
+        testHandler.addUser("Bob");
         String actual = testHandler.getUsers();
 
-        Assert.assertEquals("World", actual);
+        Assert.assertEquals("Bob", actual);
     }
 
     @Test
@@ -42,11 +42,40 @@ public class UserHandlerTest {
 
     @Test
     public void onlyAllowsUniqueUsers() {
-        testHandler.addUser("World");
-        testHandler.addUser("World");
+        testHandler.addUser("Bob");
+        testHandler.addUser("Bob");
 
         String actual = testHandler.getUsers();
 
-        Assert.assertEquals("World", actual);
+        Assert.assertEquals("Bob", actual);
+    }
+
+    @Test
+    public void removeUserFromWorld() {
+        testHandler.addUser("Bob");
+        testHandler.removeUser("Bob");
+        String actual = testHandler.getUsers();
+
+        Assert.assertEquals("", actual);
+    }
+
+    @Test
+    public void cannotRemoveWorldOwner() {
+        testHandler.addUser(Messages.WORLD_OWNER);
+        testHandler.removeUser(Messages.WORLD_OWNER);
+
+        String actual = testHandler.getUsers();
+
+        Assert.assertEquals(Messages.WORLD_OWNER, actual);
+    }
+
+    @Test
+    public void changeNameOfUser() {
+        testHandler.addUser("Sue");
+        testHandler.updateUser("Sue", "Dave");
+
+        String actual = testHandler.getUsers();
+
+        Assert.assertEquals("Dave", actual);
     }
 }
