@@ -51,15 +51,32 @@ public class UserHandler implements HttpHandler {
     }
 
     public void removeUser(String usersName) {
-        if (usersName.equalsIgnoreCase(Messages.WORLD_OWNER)) {
-            //set error message
-            return;
-        }
-        for (User aUser : users.getUsers()) {
-            if (aUser.getName().equalsIgnoreCase(usersName)) {
-                users.removeUser(aUser);
-                break;
+        if (isNotWorldOwner(usersName)) {
+            for (User aUser : users.getUsers()) {
+                if (aUser.getName().equalsIgnoreCase(usersName)) {
+                    users.removeUser(aUser);
+                    break;
+                }
             }
         }
+    }
+
+    public void updateUser(String oldNameKey, String newNameValue) {
+        if (isNotWorldOwner(oldNameKey)) {
+            for (User aUser : users.getUsers()) {
+                if (aUser.getName().equalsIgnoreCase(oldNameKey)) {
+                    aUser.setName(newNameValue);
+                    break;
+                }
+            }
+        }
+    }
+
+    public boolean isNotWorldOwner(String nameToCompare) {
+        if (nameToCompare.equalsIgnoreCase(Messages.WORLD_OWNER)) {
+            //set error message
+            return false;
+        }
+        return true;
     }
 }

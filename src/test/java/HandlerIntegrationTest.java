@@ -9,8 +9,8 @@ public class HandlerIntegrationTest {
     private final String WORLD_OWNER = "Ryan";
     private UserStorage users = new World();
     private UserRepository repo = new UserRepository(users);
-    GreetingHandler greetingHandler;
-    UserHandler userHandler;
+    private GreetingHandler greetingHandler;
+    private UserHandler userHandler;
 
     @Before
     public void init() {
@@ -24,7 +24,7 @@ public class HandlerIntegrationTest {
 
         String actual = userHandler.getUsers();
 
-        Assert.assertEquals(WORLD_OWNER + ", Bob", actual);
+        Assert.assertEquals(WORLD_OWNER + "\nBob", actual);
     }
 
     @Test
@@ -64,5 +64,15 @@ public class HandlerIntegrationTest {
         String actual = userHandler.getUsers();
 
         Assert.assertEquals(WORLD_OWNER, actual);
+    }
+
+    @Test
+    public void changeNameOfUser() {
+        userHandler.addUser("Bob");
+        userHandler.updateUser("Bob", "Sue");
+
+        String actual = userHandler.getUsers();
+
+        Assert.assertEquals("Ryan\nSue", actual);
     }
 }
