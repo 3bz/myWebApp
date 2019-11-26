@@ -8,12 +8,13 @@ import java.time.Instant;
 public class GreetingHandlerTest {
 
     private World users = new World();
-    private UserRepository repo = new UserRepository(users);
+    private UserRepository uRepo = new UserRepository(users);
+    private GreetingRepository gRepo = new GreetingRepository(users);
     private GreetingHandler testHandler;
 
     @Before
     public void init() {
-        testHandler = new GreetingHandler(repo);
+        testHandler = new GreetingHandler(gRepo);
         testHandler.setWelcomeMessage();
     }
 

@@ -7,14 +7,15 @@ import java.time.Instant;
 
 public class HandlerIntegrationTest {
     private UserStorage users = new World();
-    private UserRepository repo = new UserRepository(users);
+    private UserRepository uRepo = new UserRepository(users);
+    private GreetingRepository gRepo = new GreetingRepository(users);
     private GreetingHandler greetingHandler;
     private UserHandler userHandler;
 
     @Before
     public void init() {
-        greetingHandler = new GreetingHandler(repo);
-        userHandler = new UserHandler(repo);
+        greetingHandler = new GreetingHandler(gRepo);
+        userHandler = new UserHandler(uRepo);
     }
 
     @Test
@@ -33,7 +34,7 @@ public class HandlerIntegrationTest {
 
         String actual = greetingHandler.getResponse();
 
-        Assert.assertEquals("Hello Ryan and Bob - the time on the server is " + Time.from(Instant.now()), actual);
+        Assert.assertEquals("Hello " + Messages.WORLD_OWNER + " and Bob - the time on the server is " + Time.from(Instant.now()), actual);
     }
 
     @Test
@@ -44,6 +45,6 @@ public class HandlerIntegrationTest {
 
         String actual = greetingHandler.getResponse();
 
-        Assert.assertEquals("Hello Ryan, Bob and Sue - the time on the server is " + Time.from(Instant.now()), actual);
+        Assert.assertEquals("Hello " + Messages.WORLD_OWNER + ", Bob and Sue - the time on the server is " + Time.from(Instant.now()), actual);
     }
 }

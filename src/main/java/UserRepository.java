@@ -1,7 +1,6 @@
 import java.util.List;
 
 public class UserRepository {
-
     private UserStorage users;
 
     public UserRepository(UserStorage storage){

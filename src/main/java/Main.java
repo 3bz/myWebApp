@@ -4,9 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
         UserStorage serverWorld = new World();
-        UserRepository userRepository = new UserRepository(serverWorld);
+        UserRepository userRepo = new UserRepository(serverWorld);
+        GreetingRepository greetingRepo = new GreetingRepository(serverWorld);
 
-        HttpServer server = Server.createServer(userRepository);
+        HttpServer server = Server.createServer(userRepo, greetingRepo);
         server.start();
         System.out.println(Messages.SERVER_ONLINE);
     }

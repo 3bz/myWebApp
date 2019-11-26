@@ -17,15 +17,15 @@ public class UserHandlerTest {
         testHandler.addUser("Bob");
         String actual = testHandler.getUsers();
 
-        Assert.assertEquals("Bob", actual);
+        Assert.assertEquals(Messages.WORLD_OWNER + "\nBob", actual);
     }
 
     @Test
-    public void cannotChangeToEmptyName() {
+    public void cannotAddUserWithEmptyName() {
         testHandler.addUser("  ");
         String actual = testHandler.getUsers();
 
-        Assert.assertEquals("", actual);
+        Assert.assertEquals(Messages.WORLD_OWNER, actual);
     }
 
     @Test
@@ -34,8 +34,9 @@ public class UserHandlerTest {
         testHandler.addUser("World");
 
         String actual = testHandler.getUsers();
-        String expected = "Hello" +
-                        "\nWorld";
+        String expected = (Messages.WORLD_OWNER +
+                        "\nHello" +
+                        "\nWorld");
 
         Assert.assertEquals(expected, actual);
     }
@@ -47,7 +48,7 @@ public class UserHandlerTest {
 
         String actual = testHandler.getUsers();
 
-        Assert.assertEquals("Bob", actual);
+        Assert.assertEquals(Messages.WORLD_OWNER + "\nBob", actual);
     }
 
     @Test
@@ -56,7 +57,7 @@ public class UserHandlerTest {
         testHandler.removeUser("Bob");
         String actual = testHandler.getUsers();
 
-        Assert.assertEquals("", actual);
+        Assert.assertEquals(Messages.WORLD_OWNER, actual);
     }
 
     @Test
@@ -76,6 +77,6 @@ public class UserHandlerTest {
 
         String actual = testHandler.getUsers();
 
-        Assert.assertEquals("Dave", actual);
+        Assert.assertEquals(Messages.WORLD_OWNER + "\nDave", actual);
     }
 }

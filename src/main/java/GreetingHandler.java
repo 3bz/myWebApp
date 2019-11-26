@@ -6,13 +6,13 @@ import java.io.OutputStream;
 
 public class GreetingHandler implements HttpHandler {
 
-    private UserRepository users;
+    private GreetingRepository storage;
+
     private int returnCode;
     private String response;
 
-    public GreetingHandler(UserRepository users) {
-        this.users = users;
-        users.addUser(new User(Messages.WORLD_OWNER));
+    public GreetingHandler(GreetingRepository users) {
+        storage = users;
     }
 
     @Override
@@ -52,11 +52,11 @@ public class GreetingHandler implements HttpHandler {
 
     public String getUsers() {
         String namesOfUsers = "";
-        for (int i = 0; i < users.getUsers().size(); i ++) {
-            namesOfUsers += users.getUsers().get(i).getName();
-            if (i + 2 < users.getUsers().size())
+        for (int i = 0; i < storage.getUsers().size(); i ++) {
+            namesOfUsers += storage.getUsers().get(i).getName();
+            if (i + 2 < storage.getUsers().size())
                 namesOfUsers += ", ";
-            if (i + 2 == users.getUsers().size())
+            if (i + 2 == storage.getUsers().size())
                 namesOfUsers += " and ";
         }
         return namesOfUsers;
