@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="UserHandlerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-26T04:09:41" hostname="C02Y309QJG5J" time="0.001">
+<testsuite name="UserHandlerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-12-05T00:18:40" hostname="C02Y309QJG5J" time="0.003">
   <properties/>
-  <testcase name="changeNameOfUser" classname="UserHandlerTest" time="0.001"/>
+  <testcase name="cannotRemoveWorldOwner" classname="UserHandlerTest" time="0.001"/>
+  <testcase name="changeNameOfUser" classname="UserHandlerTest" time="0.0"/>
+  <testcase name="addANewUser" classname="UserHandlerTest" time="0.0"/>
+  <testcase name="cannotAddUserWithEmptyName" classname="UserHandlerTest" time="0.0"/>
+  <testcase name="addTwoUsers" classname="UserHandlerTest" time="0.0"/>
+  <testcase name="onlyAllowsUniqueUsers" classname="UserHandlerTest" time="0.0"/>
+  <testcase name="removeUserFromWorld" classname="UserHandlerTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
