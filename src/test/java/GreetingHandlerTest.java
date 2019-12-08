@@ -5,21 +5,24 @@ import org.junit.Test;
 import java.sql.Time;
 import java.time.Instant;
 
-public class HandlerTest {
+public class GreetingHandlerTest {
 
-    private Handler testHandler;
+    private World users = new World();
+    private UserRepository uRepo = new UserRepository(users);
+    private GreetingRepository gRepo = new GreetingRepository(users);
+    private GreetingHandler testHandler;
 
     @Before
     public void init() {
-        testHandler = new Handler();
+        testHandler = new GreetingHandler(gRepo);
         testHandler.setWelcomeMessage();
     }
 
     @Test
     public void testUser() {
-        String actual = testHandler.getUser();
+        String actual = testHandler.getUsers();
 
-        Assert.assertEquals("Ryan", actual);
+        Assert.assertEquals(Messages.WORLD_OWNER, actual);
     }
 
     @Test
@@ -30,19 +33,9 @@ public class HandlerTest {
     }
 
     @Test
-    public void changeUser() {
-        String user = "World";
-        testHandler.addUser(user);
-        String actual = testHandler.getUser();
-
-        Assert.assertEquals("World", actual);
-    }
-
-    @Test
-    public void desiredResponse() {
-        testHandler.setWelcomeMessage();
+    public void greetedWithNameAndTime() {
         String actual = testHandler.getResponse();
-        String expected = "Hello Ryan - the time on the server is " + Time.from(Instant.now());
+        String expected = "Hello " + Messages.WORLD_OWNER + " - the time on the server is " + Time.from(Instant.now());
 
         Assert.assertEquals(expected, actual);
     }
@@ -53,7 +46,7 @@ public class HandlerTest {
         String actual = testHandler.getResponse();
         int actualRCode = testHandler.getReturnCode();
 
-        Assert.assertEquals("Method Not Allowed", actual);
+        Assert.assertEquals("405: Method Not Allowed", actual);
         Assert.assertEquals(405, actualRCode);
     }
 
