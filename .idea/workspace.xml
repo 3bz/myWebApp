@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4225ec8c-d5c3-46d0-be0f-98d12df1c8ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildkite/pipeline.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/buildkite/pipeline.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
